@@ -1,12 +1,9 @@
-import React from 'react'
-import Button from '../Button/Button'
+import React from 'react';
+import { useTelegram } from '../../Hooks/useTelegram.js';
+import Button from '../Button/Button';
 
 const Header = () => {
-    const tg = window.Telegram.WebApp;
-    
-    const onClose = () => {
-        tg.close()
-      }
+ const {user, onClose} = useTelegram()
 
   return (
    <div className='{header'>
@@ -18,4 +15,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default Header;
