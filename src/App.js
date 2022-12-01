@@ -4,18 +4,10 @@ import {useTelegram} from "./Hooks/useTelegram";
 import Header from "./components/Header/Header";
 import {Route, Routes} from 'react-router-dom'
 import ProductList from "./components/ProductList/ProductList";
+import Forms from './components/Forms/Forms';
 
 
 function App() {
-    tg = window.Telegram.WebApp;
-    onToggleButton = () => {
-        if(tg.MainButton.isVisible) {
-            tg.MainButton.hide();
-        } else {
-            tg.MainButton.show();
-        }
-    }
-
     const {onToggleButton, tg} = useTelegram();
 
     useEffect(() => {
@@ -27,6 +19,7 @@ function App() {
             <Header />
             <Routes>
                 <Route index element={<ProductList />}/>
+                <Route path={'form'} element={<Forms/>}/>
                 
             </Routes>
         </div>
