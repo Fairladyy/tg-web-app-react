@@ -1,22 +1,36 @@
-import { useEffect } from 'react';
 import './App.css';
-import { useTelegram } from './Hooks/useTelegram';
-
-
+import {useEffect} from "react";
+import {useTelegram} from "./Hooks/useTelegram";
+import Header from "./components/Header/Header";
+import {Route, Routes} from 'react-router-dom'
+import ProductList from "./components/ProductList/ProductList";
 
 
 function App() {
-  const {onToggleButton, tg} = useTelegram();
+    tg = window.Telegram.WebApp;
+    onToggleButton = () => {
+        if(tg.MainButton.isVisible) {
+            tg.MainButton.hide();
+        } else {
+            tg.MainButton.show();
+        }
+    }
 
-  useEffect(() => {
-    tg.ready();
-  }, [])
+    const {onToggleButton, tg} = useTelegram();
 
-  return (
-    <div className="App">
-      <button onClick={onTogglebutton}>toggle</button>
-    </div>
-  );
+    useEffect(() => {
+        tg.ready();
+    }, [])
+
+    return (
+        <div className="App">
+            <Header />
+            <Routes>
+                <Route index element={<ProductList />}/>
+                
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
