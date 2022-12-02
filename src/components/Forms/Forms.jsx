@@ -60,8 +60,8 @@ const Forms = () => {
     <div className={"forms"}>
       <h3>Введите ваши данные</h3>
       <select value={country} className={"select"} onChange={onChangeCountry}>
-        <option value={"Latvia"}>Латвия</option>
-        <option value={"Russia"}>Россия</option>
+        <option value={"Латвия"}>Латвия</option>
+        <option value={"Россия"}>Россия</option>
       </select>
       <input
         className={"input"}
