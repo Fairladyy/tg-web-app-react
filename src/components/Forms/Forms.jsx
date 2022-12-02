@@ -59,13 +59,10 @@ const Forms = () => {
   return (
     <div className={"forms"}>
       <h3>Введите ваши данные</h3>
-      <input
-        className={"input"}
-        type="text"
-        placeholder={"Страна"}
-        value={country}
-        onChange={onChangeCountry}
-      />
+      <select value={country} className={"select"} onChange={onChangeCountry}>
+        <option value={"Latvia"}>Латвия</option>
+        <option value={"Russia"}>Россия</option>
+      </select>
       <input
         className={"input"}
         type="text"
